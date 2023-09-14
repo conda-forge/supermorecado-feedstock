@@ -1,5 +1,5 @@
 {% set name = "supermorecado" %}
-{% set version = "0.1.1" %}
+{% set version = "0.1.2" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/supermorecado-{{ version }}.tar.gz
-  sha256: b3f43e0ea475473da8c9b54af340f2cf6edc0b0abc7c0f1c06ba6d1fe6a75892
+  sha256: b51664d2eb12326e657a9d80c6849857c42ef3876545515ef988e266e6cc9654
 
 build:
   entry_points:
@@ -25,6 +25,11 @@ requirements:
     - python >=3.8
     - morecantile
     - rasterio
+    - attrs
+    - affine
+    - cligj
+    - numpy
+    - click
 
 test:
   imports:
