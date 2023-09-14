@@ -25,6 +25,11 @@ requirements:
     - python >=3.8
     - morecantile
     - rasterio
+    - attrs
+    - affine
+    - cligj
+    - numpy
+    - click
 
 test:
   imports:
