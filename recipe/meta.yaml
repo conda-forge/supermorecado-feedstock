@@ -6,7 +6,7 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/supermorecado-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/supermorecado-{{ version }}.tar.gz
   sha256: b51664d2eb12326e657a9d80c6849857c42ef3876545515ef988e266e6cc9654
 
 build:
@@ -14,15 +14,15 @@ build:
     - supermorecado = supermorecado.scripts.cli:cli
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
-  number: 0
+  number: 1
 
 requirements:
   host:
-    - python >=3.8
+    - python {{ python_min }}
     - flit >=3.2,<4
     - pip
   run:
-    - python >=3.8
+    - python >={{ python_min }}
     - morecantile
     - rasterio
     - attrs
@@ -39,6 +39,7 @@ test:
     - supermorecado --help
   requires:
     - pip
+    - python {{ python_min }}
 
 about:
   summary: Extend the functionality of morecantile with additional commands.
